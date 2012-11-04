@@ -28,8 +28,8 @@ var initClock = function(block) {
 		
 		// Animate only if the number has changed and hasn't been empty.
 		if (newNumber !== currNumber && currNumber !== '') {
-			block.stop().animate({ color: '#fff77c' }, 500, function() {
-				block.animate({ color: '#f60' }, 500);
+			block.stop().animate({ color: '#fff77c' }, 100, function() {
+				block.animate({ color: '#f60' }, 900);
 			});
 		}
 	};

@@ -33,10 +33,14 @@ html {
 }
 
 div.center {
-		width: 706px;
 		height: 222px;
+		width: 706px;
 		text-align: center;
-		margin: 16% auto;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -111px;
+		margin-left: -353px;
 }
 
 #time{

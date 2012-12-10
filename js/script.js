@@ -1,36 +1,25 @@
-$(document).ready(function(){
-	/* This code is executed after the DOM has been completely loaded */
+function replaceText(obj, text) {
+	while (obj.firstChild) obj.removeChild(obj.firstChild)
+	obj.appendChild(document.createTextNode(text))
+	obj.setAttribute("data-text", text)
+}
 
-	initClock($('#time'));
-
-});
-
-var initClock = function(block) {
-	block.append(
-		'<div class="clock hour"><div class="display"></div></div>'
-		+ '<div class="clock minute"><div class="display"></div></div>'
-		+ '<div class="clock second"><div class="display"></div></div>'
-	);
-	
-	var numbers = [];
-	
-	block.find('.display').each(function() {
-		numbers.push($(this));
-	});
+(function() {
+	var numbers = document.getElementsByClassName("display");
 	
 	var formatNumber = function(n) {
 		return n < 10 ? '0' + n : '' + n;
 	};
 	
 	var updateNumber = function(block, newNumber) {
-		var currNumber = block.text();
-		block.text(newNumber);
+		var currNumber = block.getAttribute("data-text")
+		replaceText(block, newNumber)
 		
 		// Animate only if the number has changed and hasn't been empty.
-		if (newNumber !== currNumber && currNumber !== '') {
-			block.stop().animate({ color: '#fff77c' }, 100, function() {
-				block.animate({ color: '#f60' }, 900);
-			});
+		if (newNumber !== currNumber && currNumber !== null) {
+			block.className += " change"
+			block.clientHeight
+			block.className = block.className.replace(" change", "")
 		}
 	};
 	
@@ -43,4 +32,4 @@ var initClock = function(block) {
 	
 	updateNumbers();
 	setInterval(updateNumbers, 1000);
-};
+})()

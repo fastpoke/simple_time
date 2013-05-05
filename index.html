@@ -9,12 +9,8 @@
   <link rel="stylesheet" type="text/css" href="/css/light.css" />
   <script type="text/javascript">
   function usestyle(setcss) {
-    for (i = 0; i < 2; i++) {
-      if (setcss != i)
-        document.styleSheets[i].disabled = true;
-      else
-        document.styleSheets[i].disabled = false;
-    }
+      for (i = 0; i < 2; i++)
+          document.styleSheets[i].disabled = (setcss != i);
   }
   </script>
  </head>
